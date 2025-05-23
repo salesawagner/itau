@@ -1,0 +1,180 @@
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '11.0'
+
+inhibit_all_warnings!
+use_frameworks!
+
+workspace 'XPFinanceUI'
+
+target 'XPFinanceUI' do
+
+  # Cocoapods
+  pod 'SwiftLint', '0.47.1'
+  pod 'SwiftGen', '6.5.1'
+  pod 'lottie-ios'
+
+  # Soma
+  pod 'SomaiOSAssets', :path => '../SomaAssets'
+  pod 'SomaiOS/Alert', :path => '../Soma'
+  pod 'SomaiOS/Banners', :path => '../Soma'
+  pod 'SomaiOS/BottomBar', :path => '../Soma'
+  pod 'SomaiOS/BottomSheet', :path => '../Soma'
+  pod 'SomaiOS/Buttons', :path => '../Soma'
+  pod 'SomaiOS/Dialog', :path => '../Soma'
+  pod 'SomaiOS/Cards', :path => '../Soma'
+  pod 'SomaiOS/Cells', :path => '../Soma'
+  pod 'SomaiOS/CompoundButtons', :path => '../Soma'
+  pod 'SomaiOS/Core', :path => '../Soma'
+  pod 'SomaiOS/Dialog', :path => '../Soma'
+  pod 'SomaiOS/InputTransaction', :path => '../Soma'
+  pod 'SomaiOS/Shortcuts', :path => '../Soma'
+  pod 'SomaiOS/SomaUtils', :path => '../Soma'
+  pod 'SomaiOS/TabView', :path => '../Soma'
+  pod 'SomaiOS/TagFilter', :path => '../Soma'
+  pod 'SomaiOS/TextField', :path => '../Soma'
+  pod 'SomaiOS/TopBar', :path => '../Soma'
+  pod 'SomaiOS/TopBarProgress', :path => '../Soma'
+
+  # Corporate
+  pod 'EletronicSignature', :path => '../EletronicSignature'
+  pod 'EyeManager', :path => '../EyeManager'
+  pod 'DeeplinkCore/Features', :path => '../DeeplinkCore'
+  pod 'SelfTableViewManager', :path => '../SelfTableViewManager'
+  pod 'SomaiOSXP', :path => '../SomaXP'
+  pod 'XPCommons', :path => '../XPCommons'
+  pod 'XPComponents', :path => '../XPComponents'
+  pod 'NotificationCenter', :path => '../XPNotificationCenter'
+
+  # WLAntifraud
+  pod 'WLAntifraudInterface', :path => '../WLAntifraud/WLAntifraudInterface'
+  pod 'XPFacialBiometricsiOS', :path => '../WLFacialBiometrics/XPFacialBiometrics'
+  pod 'XPFacialBiometricsInterface', :path => '../WLFacialBiometrics/XPFacialBiometricsInterface'
+
+  # Banner
+  pod 'XPBanner', :path => '../XPBanner'
+  pod 'XPBanner/HelpFlow', :path => '../XPBanner'
+
+  ## UtilsCore
+  pod 'UtilsCore', :path => '../UtilsCore'
+  
+  ## Core
+  pod 'XPCore/AppGlobalIntegrationDeeplink', :path => '../XPCore'
+  pod 'XPCore/DigitalAccountService', :path => '../XPCore'
+  pod 'XPCore/Reusable', :path => '../XPCore'
+  pod 'XPCore/ThirdParties', :path => '../XPCore'
+  pod 'MedalliaCoreInterface', :path => '../MedalliaCore/MedalliaCoreInterface'
+  pod 'ThirdPartiesCore', :path => '../ThirdPartiesCore'
+  
+  # OTPTokenCodeInterface 
+  pod 'OTPTokenCodeInterface', :path => '../XPLoginService/OTPTokenCodeInterface'
+  
+  # MyPortfolioService 
+  pod 'MyPortfolioServiceInterface', :path => '../MyPortfolioService/MyPortfolioServiceInterface'
+  
+  # Foundation
+  pod 'DependencyInjector', :path => '../DependencyInjector'
+
+  ## Network
+  pod 'XPLoginService', :path => '../XPLoginService/XPLoginService'
+  pod 'NetworkCore', :path => '../NetworkCore'
+
+  ## Finance
+  pod 'XPBarcode', :path => '../XPBarcode'
+  pod 'XPFinance', :path => '../XPFinance'
+  pod 'XPFinanceInterface', :path => '../XPFinanceInterface'
+
+  ## AnalyticsCore
+  pod 'AnalyticsCore', :path => '../AnalyticsCore'
+  pod 'SerializationCore', :path => '../SerializationCore'
+  
+  ## WLWhatsNew
+  pod 'WLWhatsNewInterface', :path => '../WLWhatsNew/WLWhatsNewInterface'
+
+  # BilletConsulting
+  pod 'BilletConsultingInterface', :path => '../Payments/BilletConsultingInterface'
+  
+  ## XPuzzle
+  pod 'XPuzzle', :path => '../XPuzzle'
+
+  target 'XPFinanceUITests' do
+    pod 'SnapshotTesting', '~> 1.7'
+    pod 'TestUtils', :path => '../TestUtils'
+    pod 'SomaiOS/TestUtils', :path => '../Soma'
+    pod 'UtilsCoreTestUtils', :path => '../UtilsCore'
+    pod 'XPCore/DigitalAccountService', :path => '../XPCore'
+    pod 'MyPortfolioServiceTestUtils', :path => '../MyPortfolioService/MyPortfolioServiceInterface'
+    pod 'AnalyticsCoreTestUtils', :path => '../AnalyticsCore'
+    pod 'ThirdPartiesCoreTestUtils', :path => '../ThirdPartiesCore'
+    pod 'DependencyInjectorTestUtils', :path => '../DependencyInjector'
+  end
+end
+
+target 'SampleApp' do
+  project 'SampleApp/SampleApp'
+  pod 'XPFinanceUI', :path => './'
+
+  # Brand
+  pod 'XPuzzle', :path => '../XPuzzle'
+
+  # WLAntifraud
+  pod 'WLAntifraud', :path => '../WLAntifraud/WLAntifraud'
+  pod 'WLAntifraudAssembly', :path => '../WLAntifraud/WLAntifraudAssembly'
+  pod 'WLAntifraudInterface', :path => '../WLAntifraud/WLAntifraudInterface'
+
+  # WLBiometricRegistrationUI
+  pod 'WLBiometricRegistrationUI', :path => '../WLBiometricRegistration/WLBiometricRegistrationUI'
+  pod 'WLBiometricRegistrationUIInterface', :path => '../WLBiometricRegistration/WLBiometricRegistrationUIInterface'
+  pod 'WLBiometricRegistrationUIAssembly', :path => '../WLBiometricRegistration/WLBiometricRegistrationUIAssembly'
+
+  # WLBiometricRegistrationRepository
+  pod 'WLBiometricRegistrationRepository', :path => '../WLBiometricRegistration/WLBiometricRegistrationRepository'
+  pod 'WLBiometricRegistrationRepositoryAssembly', :path => '../WLBiometricRegistration/WLBiometricRegistrationRepositoryAssembly'
+  pod 'WLBiometricRegistrationRepositoryInterface', :path => '../WLBiometricRegistration/WLBiometricRegistrationRepositoryInterface'
+
+  # WLFacialBiometrics
+  pod 'WLFacialBiometrics', :path => '../WLFacialBiometrics/WLFacialBiometrics'
+  pod 'WLFacialBiometricsAssembly', :path => '../WLFacialBiometrics/WLFacialBiometricsAssembly'
+  pod 'WLFacialBiometricsInterface', :path => '../WLFacialBiometrics/WLFacialBiometricsInterface'
+
+  # XPFacialBiometricsiOS
+  pod 'XPFacialBiometricsiOS', :path => '../WLFacialBiometrics/XPFacialBiometrics'
+  pod 'XPFacialBiometricsInterface', :path => '../WLFacialBiometrics/XPFacialBiometricsInterface'
+
+  # EventSource
+  pod 'EventSourceCore', :path => '../EventSource/EventSourceCore'
+  pod 'EventSourceInterface', :path => '../EventSource/EventSourceInterface'
+  pod 'EventSourceAssembly', :path => '../EventSource/EventSourceAssembly'
+  
+  # WLWhatsNew
+  pod 'WLWhatsNew', :path => '../WLWhatsNew/WLWhatsNew'
+  pod 'WLWhatsNewInterface', :path => '../WLWhatsNew/WLWhatsNewInterface'
+  pod 'WLWhatsNewAssembly', :path => '../WLWhatsNew/WLWhatsNewAssembly'    
+
+  # Google
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Firestore'
+  pod 'DatadogSDK'
+
+  # Auth
+  pod 'XPAuth', :path => '../XPAuth'
+  pod 'NetworkCore', :path => '../NetworkCore'
+  pod 'XPCore/Core', :path => '../XPCore'
+  pod 'XPToken', :path => '../XPLoginService/XPToken'
+  pod 'XPTokenInterface', :path => '../XPLoginService/XPTokenInterface'
+  pod 'TOTPGenerator', :path => '../OTPGenerator'
+  pod 'XPLoginService', :path => '../XPLoginService/XPLoginService'
+  pod 'XPLoginServiceInterface', :path => '../XPLoginService/XPLoginServiceInterface'
+  pod 'SomaiOS/Core', :path => '../Soma'
+  pod 'SomaiOSAssets', :path => '../SomaAssets'
+  pod 'XPLoginUIInterface', :path => '../WLOAuth/XPLoginUIInterface'
+  pod 'SignTermSDK', :path => '../SignTermSDK'
+
+  # DI
+  pod 'Swinject', '~> 2.0'
+  pod 'SwinjectAutoregistration', '~> 2.0'
+  pod 'DependencyInjector', :path => '../DependencyInjector'
+  pod 'MyPortfolioServiceTestUtils', :path => '../MyPortfolioService/MyPortfolioServiceInterface'
+end

@@ -1,0 +1,91 @@
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '11.0'
+install! 'cocoapods'
+use_frameworks!
+
+def soma_utilites
+  pod 'MedalliaCoreInterface', :path => '../MedalliaCore/MedalliaCoreInterface'
+  pod 'Parchment', '2.4.0'
+  pod 'Shimmer', :modular_headers => true
+  pod 'SomaiOSAssets', :path => '../SomaAssets'
+  pod 'SwiftGen', '6.5.1'
+  pod 'SwiftLint', '0.47.1'
+  pod 'UtilsCore', :path => '../UtilsCore'
+  pod 'XPCore/ThirdParties', :path => '../XPCore'
+end
+
+workspace 'SomaiOS'
+
+target 'SomaiOS' do
+
+  soma_utilites
+
+  target 'SomaiOSTests' do
+    pod 'SnapshotTesting', '1.9.0'
+    pod 'SomaiOSAssets', :path => '../SomaAssets'
+    pod 'TestUtils', :path => '../TestUtils'
+  end
+
+end
+
+target 'SampleApp' do
+  project 'SampleApp/SampleApp'
+  pod 'DeeplinkCore/Features', :path => '../DeeplinkCore'
+  pod 'SomaiOS', :path => './'
+  pod 'SomaiOS/ActivityIndicator', :path => './'
+  pod 'SomaiOS/Alert', :path => './'
+  pod 'SomaiOS/Analytics', :path => './'
+  pod 'SomaiOS/AssetCard', :path => './'
+  pod 'SomaiOS/AvatarSquare', :path => './'
+  pod 'SomaiOS/Avatars', :path => './'
+  pod 'SomaiOS/BannerExpandableLink', :path => './'
+  pod 'SomaiOS/BannerHero', :path => './'
+  pod 'SomaiOS/Banners', :path => './'
+  pod 'SomaiOS/BottomBar', :path => './'
+  pod 'SomaiOS/BottomSheet', :path => './'
+  pod 'SomaiOS/Buttons', :path => './'
+  pod 'SomaiOS/CardRisk', :path => './'
+  pod 'SomaiOS/Cards', :path => './'
+  pod 'SomaiOS/Cells', :path => './'
+  pod 'SomaiOS/ChartCircular', :path => './'
+  pod 'SomaiOS/ChatInput', :path => './'
+  pod 'SomaiOS/Checklist', :path => './'
+  pod 'SomaiOS/CompoundButtons', :path => './'
+  pod 'SomaiOS/Core', :path => './'
+  pod 'SomaiOS/Dialog', :path => './'
+  pod 'SomaiOS/InputBankPassword', :path => './'
+  pod 'SomaiOS/InputQuantity', :path => './'
+  pod 'SomaiOS/InputTransaction', :path => './'
+  pod 'SomaiOS/InputTransactions', :path => './'
+  pod 'SomaiOS/Modal', :path => './'
+  pod 'SomaiOS/PasswordField', :path => './'
+  pod 'SomaiOS/Search', :path => './'
+  pod 'SomaiOS/Shortcuts', :path => './'
+  pod 'SomaiOS/Slider', :path => './'
+  pod 'SomaiOS/SomaComponentError', :path => './'
+  pod 'SomaiOS/Stepper', :path => './'
+  pod 'SomaiOS/SwitchText', :path => './'
+  pod 'SomaiOS/TabView', :path => './'
+  pod 'SomaiOS/TagFilter', :path => './'
+  pod 'SomaiOS/TextField', :path => './'
+  pod 'SomaiOS/Tooltip', :path => './'
+  pod 'SomaiOS/TopBar', :path => './'
+  pod 'SomaiOS/TopBarProgress', :path => './'
+  
+  soma_utilites
+
+  pod 'Firebase'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'GoogleTagManager'
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11'
+    end
+  end
+end
